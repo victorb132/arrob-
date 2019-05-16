@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { AsyncStorage, View, Text, TouchableOpacity } from 'react-native';
+
 
 export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
 logout = () => {
     //delete axios.defaults.headers.common['Authorization']
     AsyncStorage.removeItem('userData')
-    props.navigation.navigate('Loading')
+    this.props.navigation.navigate('Loading')
 }
 
   render() {
     return (
-      <View>
-        <TouchableOpacity onPress={this.logout}>
+      <View style={{ justifyContent: 'center', marginTop: 50, marginLeft: 50}}>
+        <TouchableOpacity onPress={this.logout} >
             <Text>SAIR</Text>
         </TouchableOpacity>
       </View>
