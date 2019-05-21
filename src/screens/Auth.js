@@ -31,7 +31,7 @@ export default class Auth extends Component {
             // axios.defaults.headers.common['Authorization']
             //     = `bearer ${res.data.token}`
             AsyncStorage.setItem('userData', 'TOKEN')
-            this.props.navigation.navigate('Home', 'TOKEN')
+            this.props.navigation.navigate('CameraDocument', 'TOKEN')
         } catch (err) {
             Alert.alert('Erro', 'Falha no Login!')
             //showError(err)

@@ -6,6 +6,7 @@ import AuthOrApp from './screens/AuthOrApp'
 import Auth from './screens/Auth'
 import CommonStyles from './CommonStyles'
 import Home from './screens/Home'
+import CameraDocument from './screens/CameraDocument'
 
 
 const MainRoutes = {
@@ -20,6 +21,10 @@ const MainRoutes = {
     Home: {
         name: 'Home',
         screen: Home
+    },
+    CameraDocument: {
+        name: 'CameraDocument',
+        screen: CameraDocument
     }
 }
 
