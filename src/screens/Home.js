@@ -7,9 +7,10 @@ import Button from '../components/Button'
 import Ionicon from 'react-native-ionicons'
 import { metrics, fonts, colors } from '../styles'
 import axios from 'axios'
+import RNFS from 'react-native-fs';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
-export default class Home extends Component {
+class Home extends Component {
 
   state = {
     path: null,
@@ -47,15 +48,23 @@ export default class Home extends Component {
       }
   };
 
+  var file = {
+    uri: this.state.path,
+    type: 'image/jpeg',
+    name: 'boi.jpg',
+  }
 
+  console.log(file)
   const dataForm = new FormData();
-  dataForm.append('file', this.state.path)
+  dataForm.append('file', file)
 
      axios.post('http://172b38e5.ngrok.io/upload', dataForm, axiosConfig)
       .then(res => {
         console.log(res)
+        this.props.navigation.navigate('Result')
       }).catch(err => {
         console.log(err)
+        this.props.navigation.navigate('Result')
       })
   }
   
@@ -143,11 +152,12 @@ export default class Home extends Component {
     return (
 
       <ScrollView style={styles.containerRenderImage}>
+      
         <View style={styles.subContainer}>
           <Text style={styles.title}>Foto do documento com foto</Text>
           <Text style={styles.subtitle}>
             Verifique se a foto abaixo está de acordo com as instruções anteriores:
-              </Text>
+            </Text>
           <Image source={{ uri: this.state.path }} style={styles.previewImage} />
         </View>
 
@@ -167,6 +177,8 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home
 
 const styles = StyleSheet.create({
   container: {
