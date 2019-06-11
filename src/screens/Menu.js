@@ -15,7 +15,7 @@ export default class Menu extends Component {
     logout = () => {
         delete axios.defaults.headers.common['Authorization']
         AsyncStorage.removeItem('userData')
-        props.navigation.navigate('Loading')
+        this.props.navigation.navigate('Loading')
     }
 
     render(){
@@ -32,7 +32,7 @@ export default class Menu extends Component {
                             {props.navigation.getParam('email')}
                         </Text> */}
                     </View>
-                    <TouchableOpacity onPress={logout}>
+                    <TouchableOpacity onPress={this.logout}>
                         <View style={styles.logoutIcon}>
                             <Icon name="sign-out" size={30}
                                 color='#800' />
@@ -40,7 +40,7 @@ export default class Menu extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-            <DrawerItems {...props} />
+            {<DrawerItems {...this.props} />}
         </ScrollView>
     )
 }

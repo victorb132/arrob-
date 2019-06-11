@@ -6,11 +6,15 @@ import {
     ImageBackground,
     TouchableOpacity,
     Alert,
-    AsyncStorage
+    AsyncStorage,
+    Image
 } from 'react-native'
 import { showError } from '../common'
 import AuthInput from '../components/AuthInput'
 import CommonStyles from '../CommonStyles'
+import img from '../../assets/images/background.jpg'
+import logo from '../../assets/images/logo.png'
+import { colors } from '../styles';
 
 export default class Auth extends Component {
     state = {
@@ -77,9 +81,9 @@ export default class Auth extends Component {
         const validForm = validations.reduce((all, v) => all && v)
 
         return (
-            <View style={{color: '#FFF'}}
+            <View 
                 style={styles.background}>
-                <Text style={styles.title}>Arrob@</Text>
+                <Image source={logo} style={styles.imageContainer} />
                 <View style={styles.formContainer}>
                     <Text style={styles.subtitle}>
                         {this.state.stageNew ? 
@@ -136,20 +140,24 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: colors.red
     },
     title: {
         fontFamily: CommonStyles.fontFamily,
         fontSize: 70,
         marginBottom: 10,
+        color: 'white'
     },
     subtitle: {
         fontFamily: CommonStyles.fontFamily,
         fontSize: 20,
+        color: 'white'
     },
     formContainer: {
-        backgroundColor: 'rgba(0,0,0,0.8)',
+        backgroundColor: 'rgba(0,0,0,2)',
         padding: 20,
         width: '90%',
+        borderRadius: 10
     },
     input: {
         marginTop: 10,
@@ -160,9 +168,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         padding: 10,
         alignItems: 'center',
+        borderRadius: 8
     },
     buttonText: {
         fontFamily: CommonStyles.fontFamily,
-        fontSize: 20
+        fontSize: 20,
+        color: 'white'
     }
 })

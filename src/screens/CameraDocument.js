@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text, Image, TouchableOpacity } from 'rea
 import { colors, fonts, metrics } from '../styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import imageDoc from '../../assets/images/boi-vetor-png-1.png'
 
 class CameraDocument extends Component {
 
@@ -14,16 +15,13 @@ class CameraDocument extends Component {
 		return (
 			<ScrollView style={styles.container}>
 			<View style={styles.iconBar}>
-        <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-          <Icon name='bars' size={20} color='red' />
-        </TouchableOpacity>
-      </View>
+      			</View>
 				<View style={styles.subContainer}>
-					<Text style={styles.title}>Imagem do Boi</Text>
+					<Text style={styles.title}>Imagem do gado</Text>
 					<Text style={styles.subtitle}>
 						Tire uma foto do boi para nossa IA analisá-lo.</Text>
 					<View style={{ marginBottom: '2%' }}>
-						{/* <Image source={imageDoc} style={styles.imageContainer} /> */}
+						<Image source={imageDoc} style={styles.imageContainer} />
 					</View>
 					<Text style={styles.subtitle}>
 						Clique no icone abaixo para iniciar o modo câmera
@@ -58,10 +56,9 @@ const styles = StyleSheet.create({
 		marginTop: 20
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 30,
 		fontFamily: fonts.familyBlack,
-		marginTop: '3%',
-		marginTop: '10%'
+		alignSelf: 'center'
 	},
 	subtitle: {
 		fontSize: fonts.big,
@@ -69,13 +66,15 @@ const styles = StyleSheet.create({
 		textAlign: 'left',
 		fontFamily: fonts.familyRegular,
 		marginBottom: 20,
-		color: colors.dark
+		color:colors.dark,
+		alignSelf: 'center'
 	},
 	button: {
 		position: 'relative',
 		alignSelf: 'center',
 		justifyContent: 'center',
 		alignItems: 'center',
+		marginTop: 50
 	},
 	price: {
 		color: colors.light,
@@ -94,36 +93,37 @@ const styles = StyleSheet.create({
 		marginTop: 10
 	},
 	exclude: {
-		backgroundColor: 'red',
-		flexDirection: 'row',
-		justifyContent: 'flex-end',
-		alignItems: 'center'
+        backgroundColor: 'red',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
 	},
 	excludeText: {
-		color: '#FFF',
-		fontSize: 20,
-		margin: 10,
-	},
-	imageContainer: {
-		// width: (width - 105),
-		// padding: metrics.padding,
+        color: '#FFF',
+        fontSize: 20,
+        margin: 10,
+    },
+    imageContainer: {
+        // width: (width - 105),
+        // padding: metrics.padding,
 		alignSelf: 'center',
 		width: 170,
 		height: 150
-	},
+    },
 	image: {
 		flex: 1,
 		width: null,
 		height: null,
 		resizeMode: 'contain'
 	},
-	icon: {
-		borderColor: 'rgba(0,0,0,0.2)',
-		alignItems: 'center',
-		justifyContent: 'center',
-		width: wp('17%'),
-		height: wp('17%'),
-		backgroundColor: colors.red,
-		borderRadius: 50,
-	}
+    icon: {
+        borderColor:'rgba(0,0,0,0.2)',
+        alignItems:'center',
+        justifyContent:'center',
+        width:wp('17%'),
+        height:wp('17%'),
+        backgroundColor: colors.red,
+		borderRadius:50,
+		marginTop: 50
+    }
 })

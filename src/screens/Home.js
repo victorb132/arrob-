@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, TouchableOpacity, View, Image, 
-  ScrollView, Text, AsyncStorage } from 'react-native'
+import {
+  StyleSheet, TouchableOpacity, View, Image,
+  ScrollView, Text, AsyncStorage
+} from 'react-native'
 import { RNCamera } from 'react-native-camera'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import Button from '../components/Button'
@@ -40,25 +42,25 @@ class Home extends Component {
     this.props.navigation.navigate('Loading')
   }
 
-  imageDocument = () =>{
-    
+  imageDocument = () => {
+
     let axiosConfig = {
       headers: {
-          'content-type':'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded'
       }
-  };
+    };
 
-  var file = {
-    uri: this.state.path,
-    type: 'image/jpeg',
-    name: 'boi.jpg',
-  }
+    var file = {
+      uri: this.state.path,
+      type: 'image/jpeg',
+      name: 'boi.jpg',
+    }
 
-  console.log(file)
-  const dataForm = new FormData();
-  dataForm.append('file', file)
+    console.log(file)
+    const dataForm = new FormData();
+    dataForm.append('file', file)
 
-     axios.post('http://172b38e5.ngrok.io/upload', dataForm, axiosConfig)
+    axios.post('http://9919a3f5.ngrok.io/upload', dataForm, axiosConfig)
       .then(res => {
         console.log(res)
         this.props.navigation.navigate('Result')
@@ -67,7 +69,7 @@ class Home extends Component {
         this.props.navigation.navigate('Result')
       })
   }
-  
+
 
 
 
@@ -82,11 +84,11 @@ class Home extends Component {
             autoFocus={RNCamera.Constants.AutoFocus.on}
             flashMode={this.state.flashOn ? RNCamera.Constants.FlashMode.on : RNCamera.Constants.FlashMode.off}
             androidCameraPermissionOptions={{
-            title: 'Permission to use camera',
-            message: 'We need your permission to use your camera',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
+              title: 'Permission to use camera',
+              message: 'We need your permission to use your camera',
+              buttonPositive: 'Ok',
+              buttonNegative: 'Cancel',
+            }}
           >
             <View style={styles.offset}>
               <View style={[{ flex: wp('1.1%') }, styles.maskRow, styles.maskFrame]} />
@@ -105,11 +107,11 @@ class Home extends Component {
             autoFocus={RNCamera.Constants.AutoFocus.on}
             flashMode={this.state.flashOn ? RNCamera.Constants.FlashMode.on : RNCamera.Constants.FlashMode.off}
             androidCameraPermissionOptions={{
-            title: 'Permission to use camera',
-            message: 'We need your permission to use your camera',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
+              title: 'Permission to use camera',
+              message: 'We need your permission to use your camera',
+              buttonPositive: 'Ok',
+              buttonNegative: 'Cancel',
+            }}
           >
             <View style={styles.offset}>
               <View style={[{ flex: wp('1.1%') }, styles.maskRow, styles.maskFrame]} />
@@ -152,9 +154,9 @@ class Home extends Component {
     return (
 
       <ScrollView style={styles.containerRenderImage}>
-      
+
         <View style={styles.subContainer}>
-          <Text style={styles.title}>Foto do documento com foto</Text>
+          <Text style={styles.title}>Foto do gado</Text>
           <Text style={styles.subtitle}>
             Verifique se a foto abaixo está de acordo com as instruções anteriores:
             </Text>
@@ -185,26 +187,26 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: 'black',
-},
-preview: {
+  },
+  preview: {
     flex: 1,
     alignItems: 'center'
-},
-capture: {
+  },
+  capture: {
     marginTop: -100,
     marginBottom: 10,
-    flexDirection:'row'
-},
-buttonContainer: {
+    flexDirection: 'row'
+  },
+  buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between'
-},
-previewImage: {
+  },
+  previewImage: {
     height: hp('70%'),
     width: wp('90%'),
     padding: metrics.padding,
-},
-cancel: {
+  },
+  cancel: {
     position: 'absolute',
     right: 20,
     top: 20,
@@ -212,66 +214,64 @@ cancel: {
     color: '#FFF',
     fontWeight: '600',
     fontSize: 17,
-},
+  },
 
-//----------------------------------------
+  //----------------------------------------
 
-containerRenderImage: {
-flex: 1,
-backgroundColor: colors.greyLight
-},
-subContainer: {
-padding: metrics.padding,
-marginTop: 20
-},
-title: {
-fontSize: 20,
-fontFamily: fonts.familyBlack,
-    marginTop: '3%',
-    marginTop: '10%'
-},
-subtitle: {
-fontSize: fonts.big,
-marginTop: '2%',
-textAlign: 'left',
-fontFamily: fonts.familyRegular,
-marginBottom: 20
-},
-button: {
-position: 'relative',
-alignSelf: 'center',
-justifyContent: 'center',
-alignItems: 'center',
-},
-price: {
-color: colors.light,
-fontSize: fonts.big,
-},
-titleData: {
-fontWeight: 'bold',
-color: colors.darker,
-marginBottom: 10,
-fontSize: fonts.big
-},
-linkToHistory: {
-textDecorationLine: metrics.underline,
-color: colors.link,
-alignSelf: 'flex-start',
-marginTop: 10
-},
-exclude: {
-backgroundColor: 'red',
-flexDirection: 'row',
-justifyContent: 'flex-end',
-alignItems: 'center'
-},
-excludeText: {
-color: '#FFF',
-fontSize: 20,
-margin: 10,
-},
+  containerRenderImage: {
+    flex: 1,
+    backgroundColor: colors.greyLight
+  },
+  subContainer: {
+    padding: metrics.padding,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: fonts.familyBlack,
+    alignSelf: 'center'
+  },
+  subtitle: {
+    fontSize: fonts.big,
+    marginTop: '2%',
+    fontFamily: fonts.familyRegular,
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  button: {
+    position: 'relative',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  price: {
+    color: colors.light,
+    fontSize: fonts.big,
+  },
+  titleData: {
+    fontWeight: 'bold',
+    color: colors.darker,
+    marginBottom: 10,
+    fontSize: fonts.big
+  },
+  linkToHistory: {
+    textDecorationLine: metrics.underline,
+    color: colors.link,
+    alignSelf: 'flex-start',
+    marginTop: 10
+  },
+  exclude: {
+    backgroundColor: 'red',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  excludeText: {
+    color: '#FFF',
+    fontSize: 20,
+    margin: 10,
+  },
 
-offset: {
+  offset: {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -279,8 +279,8 @@ offset: {
     height: '100%',
     alignItems: 'center',
     justifyContent: 'space-around'
-},
-maskFrame: {
+  },
+  maskFrame: {
     backgroundColor: 'rgba(1,1,1,0.9)',
   },
   maskRow: {
@@ -289,7 +289,7 @@ maskFrame: {
   maskCenter: { flexDirection: 'row' },
 
   maskInner: {
-    height: hp('65%'),
+    height: hp('59.2%'),
     width: wp('70%'),
     backgroundColor: 'transparent',
     borderColor: 'white',
