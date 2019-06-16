@@ -10,6 +10,7 @@ import Ionicon from 'react-native-ionicons'
 import { metrics, fonts, colors } from '../styles'
 import axios from 'axios'
 import RNFS from 'react-native-fs';
+import { withNavigation } from 'react-navigation';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 class Home extends Component {
@@ -60,10 +61,12 @@ class Home extends Component {
     const dataForm = new FormData();
     dataForm.append('file', file)
 
-    axios.post('http://9919a3f5.ngrok.io/upload', dataForm, axiosConfig)
+    axios.post('http://4271c941.ngrok.io/upload', dataForm, axiosConfig)
       .then(res => {
         console.log(res)
-        this.props.navigation.navigate('Result')
+        this.props.navigation.navigate('Result', {
+          message: res.data
+        })
       }).catch(err => {
         console.log(err)
         this.props.navigation.navigate('Result')
@@ -180,7 +183,7 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default withNavigation(Home)
 
 const styles = StyleSheet.create({
   container: {
@@ -227,13 +230,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: fonts.familyBlack,
+    //fontFamily: fonts.familyBlack,
     alignSelf: 'center'
   },
   subtitle: {
     fontSize: fonts.big,
     marginTop: '2%',
-    fontFamily: fonts.familyRegular,
+    //fontFamily: fonts.familyRegular,
     marginBottom: 20,
     textAlign: 'center'
   },

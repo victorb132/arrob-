@@ -40,7 +40,7 @@ const screensRoutes = createStackNavigator({
         name: 'CameraDocument',
         screen: MenuNavigator,
         navigationOptions: {
-            headerTitle: <Header/>,
+            headerTitle: <Header/>, 
             headerStyle: {
                 backgroundColor: colors.red
               },
@@ -50,7 +50,7 @@ const screensRoutes = createStackNavigator({
         name: 'Home',
         screen: Home,
         navigationOptions: {
-            headerTitle:'Arrob@',
+            headerTitle: 'Arrob@',
             headerStyle: {
                 backgroundColor: colors.red,
                 height: 60,

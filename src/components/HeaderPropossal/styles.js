@@ -4,9 +4,8 @@ import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.red,
-    height: Platform.OS === 'ios' ? 100 : metrics.headerHeight,
+    height: Platform.OS === 'ios' ? 100 : 80,
     paddingTop: metrics.headerPadding,
     paddingHorizontal: metrics.padding,
     marginTop: -16,
@@ -17,10 +16,8 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    flex: 1,
-    height: hp('5%'),
-    resizeMode: 'contain',
-    marginTop: Platform.OS === 'ios' ? '11%' : '2%',
+    color: 'white',
+    alignContent: 'center'
   },
 });
 

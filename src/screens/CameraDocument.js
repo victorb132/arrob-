@@ -34,9 +34,6 @@ class CameraDocument extends Component {
 						</View>
 					</TouchableOpacity>
 				</View>
-				<View>
-					
-				</View>
 			</ScrollView>
 		);
 	}
@@ -57,14 +54,14 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 30,
-		fontFamily: fonts.familyBlack,
+		//fontFamily: fonts.familyBlack,
 		alignSelf: 'center'
 	},
 	subtitle: {
 		fontSize: fonts.big,
 		marginTop: '2%',
 		textAlign: 'left',
-		fontFamily: fonts.familyRegular,
+		//fontFamily: fonts.familyRegular,
 		marginBottom: 20,
 		color:colors.dark,
 		alignSelf: 'center'
@@ -127,3 +124,4 @@ const styles = StyleSheet.create({
 		marginTop: 50
     }
 })
+

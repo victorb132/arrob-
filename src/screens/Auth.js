@@ -12,7 +12,7 @@ import {
 import { showError } from '../common'
 import AuthInput from '../components/AuthInput'
 import CommonStyles from '../CommonStyles'
-import img from '../../assets/images/background.jpg'
+import img from '../../assets/images/bois2.jpg'
 import logo from '../../assets/images/logo.png'
 import { colors } from '../styles';
 
@@ -81,9 +81,12 @@ export default class Auth extends Component {
         const validForm = validations.reduce((all, v) => all && v)
 
         return (
-            <View 
+            <ImageBackground 
+                source={img}
                 style={styles.background}>
-                <Image source={logo} style={styles.imageContainer} />
+                <View style={styles.logo}>
+                    <Image source={logo} style={styles.imageContainer} />
+                </View>
                 <View style={styles.formContainer}>
                     <Text style={styles.subtitle}>
                         {this.state.stageNew ? 
@@ -129,7 +132,7 @@ export default class Auth extends Component {
                         {this.state.stageNew ? 'Já possui conta?' 
                             : 'Ainda não possui conta?'}</Text>
                 </TouchableOpacity>
-            </View>
+            </ImageBackground>
         )
     }
 }
@@ -142,6 +145,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: colors.red
     },
+    logo: {
+        width: '70%',
+        height: '17%', 
+        flexDirection: 'row', 
+        alignSelf: 'center',
+        borderRadius: 50,
+        marginBottom: 10,
+        backgroundColor: 'rgba(255,255,255,0.8)',
+      },
+      imageContainer: {
+        flex:1,
+        height: '90%',
+        resizeMode: 'contain'
+      },
     title: {
         fontFamily: CommonStyles.fontFamily,
         fontSize: 70,
